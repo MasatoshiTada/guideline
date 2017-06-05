@@ -1963,7 +1963,7 @@ Note that, Basic authentication is not performed for the Client in the settings 
                                     access="#oauth2.hasScope('READ')" /> <!-- (2) -->
             <sec:intercept-url pattern="/**" method="POST"
                                     access="#oauth2.hasScope('CREATE')" /> <!-- (2) -->
-            <sec:custom-filter ref="oauth2ProviderFilter"
+            <sec:custom-filter ref="oauth2AuthenticationFilter"
                                     before="PRE_AUTH_FILTER" />
         </sec:http>
 
@@ -3001,7 +3001,7 @@ The implementation example of client is shown below.
         }
     
     
-    };
+    });
     
     </script>
     <div id="wrapper">

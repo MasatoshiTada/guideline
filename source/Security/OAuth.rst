@@ -1963,7 +1963,7 @@ HTTPアクセスを介した連携ついては本節のHow To Extendにて説明
                                     access="#oauth2.hasScope('READ')" /> <!-- (2) -->
             <sec:intercept-url pattern="/**" method="POST"
                                     access="#oauth2.hasScope('CREATE')" /> <!-- (2) -->
-            <sec:custom-filter ref="oauth2ProviderFilter"
+            <sec:custom-filter ref="oauth2AuthenticationFilter"
                                     before="PRE_AUTH_FILTER" />
         </sec:http>
 
@@ -2322,7 +2322,7 @@ OAuth2ClientContextFilterの適用
 ただし、ブランクプロジェクトで予め設定されている\ ``SystemExceptionResolver``\ が先に\ ``UserRedirectRequiredException``\ をハンドリングしてしまうと
 \ ``Oauth2ClientContextFilter``\は期待した動作にならない。
 
-そのため、\ ``spring-mvc.xm``\ の設定を変更し、\ ``SystemExceptionResolver``\ が\ ``UserRedirectRequiredException``\をハンドリングしないようにする必要がある。
+そのため、\ ``spring-mvc.xml``\ の設定を変更し、\ ``SystemExceptionResolver``\ が\ ``UserRedirectRequiredException``\をハンドリングしないようにする必要がある。
 \ ``SystemExceptionResolver``\ の詳しい解説については\ :doc:`../ArchitectureInDetail/WebApplicationDetail/ExceptionHandling`\を参照されたい。
 
 \ ``spring-mvc.xml``\に、\ ``UserRedirectRequiredException``\ を\ ``SystemExceptionResolver``\ の除外対象として追加する。
@@ -3001,7 +3001,7 @@ OAuth 2.0機能を独自に実装したAPI例を示す。
         }
     
     
-    };
+    });
     
     </script>
     <div id="wrapper">
